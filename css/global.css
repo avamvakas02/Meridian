@@ -10,7 +10,7 @@ body {
     transition: background-color var(--transition-speed), color var(--transition-speed);
 }
 
-/* Sticky Header styling [cite: 18] */
+/* Sticky Header styling */
 .sticky-header {
     position: sticky;
     top: 0;
@@ -19,39 +19,68 @@ body {
     border-bottom: 1px solid rgba(0,0,0,0.1);
 }
 
-/* Dark Mode Overrides [cite: 22] */
+/* --- FIX: Modern Navigation Hover Effects --- */
+.nav-link {
+    position: relative;
+    font-weight: 500;
+    transition: color 0.3s ease, transform 0.2s ease !important;
+}
+
+/* Fixed: Modern color change and slight lift on hover */
+.nav-link:hover {
+    color: var(--meridian-primary) !important;
+    transform: translateY(-2px); 
+}
+
+/* Fixed: Modern indicator for the Active page */
+.nav-link.active {
+    color: var(--meridian-primary) !important;
+    font-weight: 700;
+}
+
+/* --- Dark Mode Base Overrides --- */
 body.dark-mode {
     background-color: var(--meridian-dark);
-    color: var(--meridian-light);
+    color: #e0e0e0; 
+}
+
+/* --- Dark Mode Visibility Overrides for Header/Footer --- */
+body.dark-mode .navbar, 
+body.dark-mode footer,
+body.dark-mode .bg-light {
+    background-color: #1f1f1f !important;
+    color: #f8f9fa !important;
+}
+
+body.dark-mode .text-muted {
+    color: #b0b0b0 !important;
+}
+
+body.dark-mode .nav-link {
+    color: #e0e0e0 !important;
+}
+
+/* Fixed: Hover state for dark mode specifically */
+body.dark-mode .nav-link:hover {
+    color: #4dabff !important; /* Slightly lighter blue for better contrast on dark */
+}
+
+body.dark-mode .navbar-brand {
+    color: #ffffff !important;
+}
+
+body.dark-mode .border-top,
+body.dark-mode .border-bottom {
+    border-color: #333 !important;
+}
+
+body.dark-mode footer .text-secondary {
+    color: #adb5bd !important;
 }
 
 body.dark-mode .sticky-header {
     background-color: rgba(18, 18, 18, 0.8);
     border-bottom-color: rgba(255,255,255,0.1);
-}
-
-/* Dark Mode Refinements */
-body.dark-mode {
-    background-color: #121212;
-    color: #e0e0e0;
-}
-
-/* Ensure injected nav changes color */
-body.dark-mode .navbar {
-    background-color: #1f1f1f !important;
-    border-bottom: 1px solid #333;
-}
-
-body.dark-mode .nav-link {
-    color: #b0b0b0 !important;
-}
-
-body.dark-mode .nav-link.active {
-    color: var(--meridian-primary) !important;
-}
-
-body.dark-mode .bg-light {
-    background-color: #1a1a1a !important;
 }
 
 /* Smooth transitions for all themeable elements */
