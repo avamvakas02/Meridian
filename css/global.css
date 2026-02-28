@@ -1,0 +1,60 @@
+/* Meridian Global Styles */
+:root {
+    --meridian-primary: #007bff; /* Professional Blue */
+    --meridian-dark: #121212;
+    --meridian-light: #ffffff;
+    --transition-speed: 0.3s;
+}
+
+body {
+    transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+/* Sticky Header styling [cite: 18] */
+.sticky-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px); /* Modern glassmorphism */
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+/* Dark Mode Overrides [cite: 22] */
+body.dark-mode {
+    background-color: var(--meridian-dark);
+    color: var(--meridian-light);
+}
+
+body.dark-mode .sticky-header {
+    background-color: rgba(18, 18, 18, 0.8);
+    border-bottom-color: rgba(255,255,255,0.1);
+}
+
+/* Dark Mode Refinements */
+body.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+/* Ensure injected nav changes color */
+body.dark-mode .navbar {
+    background-color: #1f1f1f !important;
+    border-bottom: 1px solid #333;
+}
+
+body.dark-mode .nav-link {
+    color: #b0b0b0 !important;
+}
+
+body.dark-mode .nav-link.active {
+    color: var(--meridian-primary) !important;
+}
+
+body.dark-mode .bg-light {
+    background-color: #1a1a1a !important;
+}
+
+/* Smooth transitions for all themeable elements */
+.navbar, .nav-link, body, .btn, .card, .list-group-item {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}

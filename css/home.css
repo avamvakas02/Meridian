@@ -1,0 +1,29 @@
+/* Home Page Specifics */
+.hero-section {
+    padding: 100px 0;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+#activity-list .list-group-item {
+    border-left: 4px solid var(--meridian-primary);
+    margin-bottom: 5px;
+    transition: transform 0.2s;
+}
+
+#activity-list .list-group-item:hover {
+    transform: translateX(10px);
+    background-color: rgba(0, 123, 255, 0.05);
+}
+
+#api-quote-container {
+    transition: all 0.3s ease;
+}
+
+body.dark-mode .hero-section {
+    background: linear-gradient(135deg, #1a1a1a 0%, #121212 100%);
+}
+
+body.dark-mode #api-quote-container {
+    background-color: #1e1e1e;
+    border-color: #333;
+}
