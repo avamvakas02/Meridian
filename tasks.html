@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meridian | Task Management</title>
+    
+    <meta name="description" content="Manage your professional tasks with Meridian's intuitive interface.">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/tasks.css">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="js/main.js" defer></script>
+    <script src="js/tasks.js" defer></script>
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+    <div id="header-placeholder"></div>
+
+    <main class="container py-5 flex-grow-1">
+        <div class="row g-4">
+            
+            <div class="col-lg-4">
+                <div class="card shadow-sm border-0 rounded-4 p-4 sticky-top" style="top: 100px;">
+                    <h2 class="h4 mb-4 fw-bold">Add New Task</h2>
+                    <form id="task-form">
+                        <div class="mb-3">
+                            <label class="form-label small text-muted">Task Name</label>
+                            <input type="text" id="task-name" class="form-control" placeholder="What needs to be done?" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label small text-muted">Description</label>
+                            <textarea id="task-desc" class="form-control" rows="3" placeholder="Add details..."></textarea>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-6">
+                                <label class="form-label small text-muted">Due Date</label>
+                                <input type="date" id="task-date" class="form-control" required>
+                            </div>
+                            <div class="col-6">
+                                <label class="form-label small text-muted">Priority</label>
+                                <select id="task-priority" class="form-select">
+                                    <option value="Low">Low</option>
+                                    <option value="Medium" selected>Medium</option>
+                                    <option value="High">High</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">
+                            <i class="bi bi-plus-circle me-2"></i>Create Task
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-lg-8">
+                
+                <div class="row g-3 mb-4">
+                    <div class="col-md-4">
+                        <div class="stat-card p-3 rounded-4 shadow-sm bg-white border-start border-primary border-4 d-flex align-items-center h-100">
+                            <div class="stat-icon bg-primary-subtle text-primary rounded-circle p-3 me-3">
+                                <i class="bi bi-list-task fs-4"></i>
+                            </div>
+                            <div>
+                                <h3 id="stat-total" class="fs-4 fw-bold mb-0">0</h3>
+                                <span class="text-muted small text-uppercase fw-semibold">Total Tasks</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="stat-card p-3 rounded-4 shadow-sm bg-white border-start border-warning border-4 d-flex align-items-center h-100">
+                            <div class="stat-icon bg-warning-subtle text-warning rounded-circle p-3 me-3">
+                                <i class="bi bi-hourglass-split fs-4"></i>
+                            </div>
+                            <div>
+                                <h3 id="stat-pending" class="fs-4 fw-bold mb-0">0</h3>
+                                <span class="text-muted small text-uppercase fw-semibold">Pending</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="stat-card p-3 rounded-4 shadow-sm bg-white border-start border-success border-4 d-flex align-items-center h-100">
+                            <div class="stat-icon bg-success-subtle text-success rounded-circle p-3 me-3">
+                                <i class="bi bi-check2-all fs-4"></i>
+                            </div>
+                            <div>
+                                <h3 id="stat-completed" class="fs-4 fw-bold mb-0">0</h3>
+                                <span class="text-muted small text-uppercase fw-semibold">Completed</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="d-flex flex-wrap justify-content-end align-items-center mb-4 gap-3">
+                    <div class="d-flex gap-2 align-items-center">
+                        <span class="small text-muted">Sort by:</span>
+                        <select id="sort-tasks" class="form-select form-select-sm border-0 shadow-sm rounded-pill">
+                            <option value="date-desc">Date (Newest)</option>
+                            <option value="date-asc">Date (Oldest)</option>
+                            <option value="name-asc">Name (A-Z)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="table-responsive shadow-sm bg-white rounded-4 overflow-hidden border">
+                    <table class="table table-hover align-middle mb-0">
+                        <thead class="table-light">
+                            <tr>
+                                <th class="ps-4">Task</th>
+                                <th>Due Date</th>
+                                <th>Priority</th>
+                                <th class="text-end pe-4">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="task-list-body">
+                            </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+</body>
+</html>
