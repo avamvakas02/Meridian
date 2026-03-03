@@ -112,6 +112,7 @@ function toggleComplete(id) {
         if (task.id === id) {
             task.completed = true; // Hardcoded to true since we don't bring them back
             logActivity("Task Completed", task.name);
+            alert(`Your task has been completed!`);
         }
         return task;
     });
@@ -149,6 +150,7 @@ function deleteTask(id, isQuiet = false) {
     
     if (!isQuiet && taskToDelete) {
         logActivity("Task Deleted", taskToDelete.name);
+        alert(`Your task has been deleted!`);
     }
     
     renderTasks();
