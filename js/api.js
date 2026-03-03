@@ -1,6 +1,6 @@
 /**
  * Meridian API Controller
- * Fetches professional insights from the ZenQuotes API.
+ * Fetches professional insights from a CORS-friendly quotes API.
  */
 
 $(document).ready(function () {
@@ -15,27 +15,20 @@ async function fetchZenQuote() {
     const $quoteAuthor = $("#quote-author");
 
     try {
-        // ZenQuotes blocks direct browser calls (CORS). 
-        // We use AllOrigins as a reliable proxy to bypass this for our frontend app.
-        const targetUrl = 'https://zenquotes.io/api/random';
-        const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(targetUrl)}`;
-
-        const response = await fetch(proxyUrl);
+        // Use a CORS-friendly API so this works without a backend/proxy.
+        // Response shape: { id, quote, author }
+        const targetUrl = "https://dummyjson.com/quotes/random";
+        const response = await fetch(targetUrl, { cache: "no-store" });
         
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
 
-        // The proxy wraps the response in a 'contents' string
-        const proxyData = await response.json();
-        
-        // Parse the actual ZenQuotes JSON
-        const quoteData = JSON.parse(proxyData.contents); 
+        const quoteData = await response.json();
 
-        // ZenQuotes returns an array: [{ q: "quote text", a: "author name", h: "html format" }]
-        if (quoteData && quoteData.length > 0) {
-            const quote = quoteData[0].q;
-            const author = quoteData[0].a;
+        if (quoteData && typeof quoteData.quote === "string" && quoteData.quote.trim()) {
+            const quote = quoteData.quote.trim();
+            const author = (quoteData.author || "Unknown").toString().trim();
 
             // Apply a smooth fade-in effect for a premium UI feel
             $quoteText.hide().text(`"${quote}"`).fadeIn(800);
