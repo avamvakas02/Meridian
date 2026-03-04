@@ -11,12 +11,12 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
     
     <link rel="stylesheet" href="css/global.css">
-    <link rel="stylesheet" href="css/contact.css">
+    <link rel="stylesheet" href="css/contact-us.css">
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
     <script src="js/main.js" defer></script>
-    <script src="js/contact.js" defer></script>
+    <script src="js/contact-us.js" defer></script>
 </head>
 <body class="d-flex flex-column min-vh-100">
 
@@ -41,50 +41,73 @@
                     </div>
                 </div>
 
-                <div class="d-flex align-items-center mb-4">
+                <div class="d-flex align-items-center mb-3">
                     <div class="icon-box bg-success-subtle text-success rounded-circle p-3 me-3">
                         <i class="bi bi-geo-alt fs-4"></i>
                     </div>
                     <div>
                         <h5 class="mb-0 fw-bold">Location</h5>
-                        <p class="text-muted mb-0">University Capstone Lab, Athens</p>
+                        <p class="text-muted mb-0"> The American College of Greece</p>
+                    </div>
+                </div>
+
+                <div class="rounded-4 overflow-hidden shadow-sm border mt-3">
+                    <div class="ratio ratio-4x3">
+                        <iframe
+                            src="https://www.google.com/maps?q=38.0052684,23.8331009&z=17&output=embed"
+                            title="Location map for The American College of Greece"
+                            style="border:0;"
+                            allowfullscreen=""
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
                     </div>
                 </div>
             </div>
 
             <div class="col-lg-7">
                 <div class="card border-0 shadow-lg rounded-4 p-4 p-md-5">
-                    <form id="contact-form">
-                        <div class="row g-3">
-                            <div class="col-md-6">
-                                <label class="form-label small text-muted fw-bold">Full Name</label>
-                                <input type="text" id="contact-name" class="form-control" placeholder="Aristeidis Vamvakas" required>
-                            </div>
-                            <div class="col-md-6">
-                                <label class="form-label small text-muted fw-bold">Email Address</label>
-                                <input type="email" id="contact-email" class="form-control" placeholder="name@example.com" required>
-                            </div>
-                            <div class="col-12">
-                                <label class="form-label small text-muted fw-bold">Subject</label>
-                                <select id="contact-subject" class="form-select">
-                                    <option selected>General Inquiry</option>
-                                    <option>Technical Support</option>
-                                    <option>Feature Suggestion</option>
-                                </select>
-                            </div>
-                            <div class="col-12">
-                                <label class="form-label small text-muted fw-bold">Message</label>
-                                <textarea id="contact-message" class="form-control" rows="5" placeholder="How can we help?" required></textarea>
-                            </div>
-                            <div class="col-12">
-                                <button type="submit" class="btn btn-primary w-100 rounded-pill py-3 fw-bold mt-2 shadow-sm">
-                                    Send Message <i class="bi bi-send-fill ms-2"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </form>
+                <form id="contact-form" class="needs-validation" novalidate>
+    <div class="row g-3">
+        
+        <div class="col-md-6">
+            <label for="contact-name" class="form-label small text-muted fw-bold">Full Name</label>
+            <input type="text" id="contact-name" class="form-control" placeholder="Enter your full name..." required minlength="3">
+            <div class="invalid-feedback">Please enter at least 3 characters.</div>
+        </div>
+
+        <div class="col-md-6">
+            <label for="contact-email" class="form-label small text-muted fw-bold">Email Address</label>
+            <input type="email" id="contact-email" class="form-control" placeholder="Enter your email address..." required>
+            <div class="invalid-feedback">Please provide a valid email (e.g., user@email.com).</div>
+        </div>
+
+        <div class="col-12">
+            <label for="contact-subject" class="form-label small text-muted fw-bold">Subject</label>
+            <select id="contact-subject" class="form-select" required>
+                <option value="" disabled selected>Choose a subject...</option>
+                <option value="General Inquiry">General Inquiry</option>
+                <option value="Technical Support">Technical Support</option>
+                <option value="Feature Suggestion">Feature Suggestion</option>
+            </select>
+            <div class="invalid-feedback">Please select an option.</div>
+        </div>
+
+        <div class="col-12">
+            <label for="contact-message" class="form-label small text-muted fw-bold">Message</label>
+            <textarea id="contact-message" class="form-control" rows="5" placeholder="How can we help?" required minlength="10"></textarea>
+            <div class="invalid-feedback">Your message must be at least 10 characters.</div>
+        </div>
+
+        <div class="col-12">
+            <button type="submit" class="btn btn-primary w-100 rounded-pill py-3 fw-bold mt-2 shadow-sm">
+                Send Message <i class="bi bi-send-fill ms-2"></i>
+            </button>
+        </div>
+    </div>
+</form>
                     
-                    <div id="contact-success" class="alert alert-success d-none mt-4 rounded-4 border-0 shadow-sm" role="alert">
+                    <div id="contact-success" class="alert alert-success d-none mt-4 rounded-4 border-0 shadow-sm" role="status" aria-live="polite">
                         <div class="d-flex align-items-center">
                             <i class="bi bi-check-circle-fill fs-4 me-3"></i>
                             <div>
