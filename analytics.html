@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meridian | Analytics Dashboard</title>
+    
+    <meta name="description" content="Visualize your productivity and task completion trends.">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/analytics.css">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+    
+    <script src="js/main.js" defer></script>
+    <script src="js/analytics.js" defer></script>
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+    <div id="header-placeholder"></div>
+
+    <!-- Analytics dashboard: summary metrics at the top and two charts below that read data from localStorage -->
+    <main class="container py-5 flex-grow-1" role="main" aria-label="Analytics dashboard">
+        <div class="d-flex justify-content-between align-items-center mb-5">
+            <div>
+                <h1 class="h3 fw-bold mb-1">Performance Analytics</h1>
+                <p class="text-muted mb-0">Real-time insights into your workflow.</p>
+            </div>
+            <a href="tasks.html" class="btn btn-outline-primary rounded-pill px-4">
+                <i class="bi bi-arrow-left me-2"></i>Back to Tasks
+            </a>
+        </div>
+
+        <!-- Placeholder where js/analytics.js injects three summary cards (total tasks, completion rate, remaining) -->
+        <div class="row g-4 mb-5" id="analytics-summary">
+        </div>
+
+        <div class="row g-4">
+            <div class="col-lg-6">
+                <!-- First chart: doughnut showing how many tasks are completed vs still pending -->
+                <div class="chart-container card shadow-sm border-0 rounded-4 p-4 h-100">
+                    <h3 id="statusChartTitle" class="h6 fw-bold text-uppercase text-muted mb-4">Task Status Distribution</h3>
+                    <div class="position-relative" style="height: 300px;">
+                        <canvas id="statusChart" role="img" aria-labelledby="statusChartTitle"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <!-- Second chart: bar chart showing how many pending tasks are High / Medium / Low priority -->
+                <div class="chart-container card shadow-sm border-0 rounded-4 p-4 h-100">
+                    <h3 id="priorityChartTitle" class="h6 fw-bold text-uppercase text-muted mb-4">Workload by Priority</h3>
+                    <div class="position-relative" style="height: 300px;">
+                        <canvas id="priorityChart" role="img" aria-labelledby="priorityChartTitle"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+</body>
+</html>

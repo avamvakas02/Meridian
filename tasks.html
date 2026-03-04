@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meridian | Task Management</title>
+    <title>Meridian | My Tasks</title>
     
     <meta name="description" content="Manage your professional tasks with Meridian's intuitive interface.">
 
@@ -21,15 +21,19 @@
 <body class="d-flex flex-column min-vh-100">
 
     <div id="header-placeholder"></div>
-
+    <!-- Main tasks page layout: left side is the form for creating a task, 
+    right side shows stats and the live task table -->
     <main class="container py-5 flex-grow-1">
         <div class="row g-4">
-            
+            <!-- Add New Task card: simple form where the user types task info 
+            that will be saved into localStorage by js/tasks.js -->
             <div class="col-lg-4">
                 <div class="card shadow-sm border-0 rounded-4 p-4 sticky-top" style="top: 100px;">
-                    <h2 class="h4 mb-4 fw-bold">Add New Task</h2>
+                    <h2 class="h4 mb-4 fw-bold">ADD NEW TASK</h2>
                     <form id="task-form">
                         <div class="mb-3">
+                            <!--simple form where the user types task info 
+                            that will be saved into localStorage by js/tasks.js-->
                             <label class="form-label small text-muted">Task Name</label>
                             <input type="text" id="task-name" class="form-control" placeholder="What needs to be done?" required>
                         </div>
@@ -45,21 +49,22 @@
                             <div class="col-6">
                                 <label class="form-label small text-muted">Priority</label>
                                 <select id="task-priority" class="form-select">
-                                    <option value="Low">Low</option>
-                                    <option value="Medium" selected>Medium</option>
-                                    <option value="High">High</option>
+                                    <option value="Low">LOW</option>
+                                    <option value="Medium" selected>MEDIUM</option>
+                                    <option value="High">HIGH</option>
                                 </select>
                             </div>
                         </div>
                         <button type="submit" class="btn btn-primary w-100 rounded-pill py-2 fw-bold shadow-sm">
-                            <i class="bi bi-plus-circle me-2"></i>Create Task
+                            <i class="bi bi-plus-circle me-2"></i>CREATE TASK
                         </button>
                     </form>
                 </div>
             </div>
 
             <div class="col-lg-8">
-                
+                <!-- Small statistics cards: these numbers are updated from 
+                js/tasks.js based on how many tasks are in localStorage -->
                 <div class="row g-3 mb-4">
                     <div class="col-md-4">
                         <div class="stat-card p-3 rounded-4 shadow-sm bg-white border-start border-primary border-4 d-flex align-items-center h-100">
@@ -95,10 +100,13 @@
                         </div>
                     </div>
                 </div>
-
+                <!-- Sort controls: dropdown that lets the user 
+                change how tasks are ordered (by date or by name) -->
                 <div class="d-flex flex-wrap justify-content-end align-items-center mb-4 gap-3">
                     <div class="d-flex gap-2 align-items-center">
                         <span class="small text-muted">Sort by:</span>
+                        <!-- When this select changes, js/tasks.js 
+                        re-renders the list using the chosen sort option -->
                         <select id="sort-tasks" class="form-select form-select-sm border-0 shadow-sm rounded-pill">
                             <option value="date-desc">Date (Newest)</option>
                             <option value="date-asc">Date (Oldest)</option>

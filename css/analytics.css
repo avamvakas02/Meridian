@@ -1,0 +1,28 @@
+/* Analytics page styles: chart cards, summary cards and their hover + dark mode behavior */
+
+.chart-container {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #ffffff;
+}
+
+.chart-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.08) !important;
+}
+
+/* Make the numbers in the summary cards larger so the main metrics stand out */
+.summary-card h2 {
+    font-size: 2.5rem;
+    letter-spacing: -1px;
+}
+
+/* Dark mode version of the analytics cards (darker background and visible borders/text) */
+body.dark-mode .chart-container,
+body.dark-mode .summary-card {
+    background-color: #1f1f1f !important;
+    border: 1px solid #333 !important;
+}
+
+body.dark-mode .summary-card h2 {
+    color: #ffffff !important;
+}

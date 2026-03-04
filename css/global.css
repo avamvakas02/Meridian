@@ -1,4 +1,8 @@
-/* Meridian Global Styles */
+/* Global styles for the whole Meridian app 
+(shared colors, logo style, navbar behavior, dark mode, etc.) */
+
+/* Main theme variables: base colors and transition speed that
+are being reused in other styles */
 :root {
     --meridian-primary: #007bff; /* Professional Blue */
     --meridian-dark: #121212;
@@ -10,41 +14,70 @@ body {
     transition: background-color var(--transition-speed), color var(--transition-speed);
 }
 
-/* Sticky Header styling */
+/* Make the header stick to the top and 
+add a light blur + border so it feels modern when scrolling */
 .sticky-header {
     position: sticky;
     top: 0;
     z-index: 1000;
-    backdrop-filter: blur(10px); /* Modern glassmorphism */
+    backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(0,0,0,0.1);
 }
 
-/* --- FIX: Modern Navigation Hover Effects --- */
+/* Keep the MERIDIAN logo consistent: "MERI" is blue 
+and "DIAN" follows the current theme colors */
+.navbar-brand, .footer-brand {
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 1.5rem;
+    color: #000000 !important; /* Default 'DIAN' color */
+}
+
+.brand-accent {
+    color: var(--meridian-primary) !important; /* 'MERI' color */
+}
+
+/* Navbar links: small hover movement and color 
+change so the navigation feels interactive */
 .nav-link {
     position: relative;
     font-weight: 500;
     transition: color 0.3s ease, transform 0.2s ease !important;
 }
-
-/* Fixed: Modern color change and slight lift on hover */
 .nav-link:hover {
     color: var(--meridian-primary) !important;
     transform: translateY(-2px); 
 }
 
-/* Fixed: Modern indicator for the Active page */
 .nav-link.active {
     color: var(--meridian-primary) !important;
     font-weight: 700;
 }
 
-/* --- Dark Mode Base Overrides --- */
+.footer-social-link {
+    display: inline-block;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.2s ease !important;
+}
+
+.footer-social-link:hover {
+    color: var(--meridian-primary) !important;
+    transform: translateY(-2px); 
+}
+
+/* Dark mode base: change body colors when JS adds the "dark-mode" class */
 body.dark-mode {
     background-color: var(--meridian-dark);
     color: #e0e0e0; 
 }
 
-/* --- Dark Mode Visibility Overrides for Header/Footer --- */
+/* In dark mode, force the DIAN part of the logo to white so it stays readable */
+body.dark-mode .navbar-brand, 
+body.dark-mode .footer-brand {
+    color: #ffffff !important;
+}
+
 body.dark-mode .navbar, 
 body.dark-mode footer,
 body.dark-mode .bg-light {
@@ -60,13 +93,8 @@ body.dark-mode .nav-link {
     color: #e0e0e0 !important;
 }
 
-/* Fixed: Hover state for dark mode specifically */
 body.dark-mode .nav-link:hover {
-    color: #4dabff !important; /* Slightly lighter blue for better contrast on dark */
-}
-
-body.dark-mode .navbar-brand {
-    color: #ffffff !important;
+    color: #4dabff !important;
 }
 
 body.dark-mode .border-top,
@@ -74,16 +102,15 @@ body.dark-mode .border-bottom {
     border-color: #333 !important;
 }
 
-body.dark-mode footer .text-secondary {
+body.dark-mode footer .footer-social-link {
     color: #adb5bd !important;
 }
 
-body.dark-mode .sticky-header {
-    background-color: rgba(18, 18, 18, 0.8);
-    border-bottom-color: rgba(255,255,255,0.1);
+body.dark-mode footer .footer-social-link:hover {
+    color: #4dabff !important;
 }
 
-/* Smooth transitions for all themeable elements */
-.navbar, .nav-link, body, .btn, .card, .list-group-item {
+.navbar, .nav-link, body, .btn, .card, .list-group-item 
+{
     transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }

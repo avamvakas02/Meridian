@@ -1,4 +1,4 @@
-/* --- Contact Page Specific Styling --- */
+/* Contact page styles: contact info card, icons, form focus effects and dark mode tweaks */
 
 .card {
     transition: transform 0.3s ease;
@@ -12,17 +12,17 @@
     justify-content: center;
 }
 
-/* Form Focus Effects */
+/* Highlight form inputs on focus with a blue outline to match the Bootstrap look */
 .form-control:focus, .form-select:focus {
     border-color: #0d6efd;
     box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.15);
 }
 
-/* Subtle background colors for contact icons */
+/* Light background colors behind the contact icons (email and location) */
 .bg-primary-subtle { background-color: rgba(13, 110, 253, 0.1) !important; }
 .bg-success-subtle { background-color: rgba(25, 135, 84, 0.1) !important; }
 
-/* --- Dark Mode Overrides --- */
+/* Dark mode version of the contact card and form fields so they stay readable on a dark background */
 
 body.dark-mode .card {
     background-color: #1f1f1f !important;
@@ -48,7 +48,7 @@ body.dark-mode .text-muted {
     color: #adb5bd !important;
 }
 
-/* Fix for valid/invalid text color in Dark Mode */
+/* Custom colors/icons for valid and invalid form states in dark mode */
 body.dark-mode .was-validated .form-control:invalid {
     border-color: #dc3545;
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23dc3545'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e");
@@ -58,7 +58,7 @@ body.dark-mode .was-validated .form-control:valid {
     border-color: #198754;
 }
 
-/* Ensure feedback text is clearly visible */
+/* Make validation error messages small but still easy to read under the inputs */
 .invalid-feedback {
     font-size: 0.8rem;
     font-weight: 500;

@@ -1,17 +1,17 @@
 /**
  * Meridian Main UI Controller
- * Handles modular component loading, global theme states, and Home Page activity.
+ * Handles loading the shared header/footer, applying the saved theme and updating the Home page activity feed.
  */
 
 $(document).ready(function () {
-    // 1. Load Shared Components
+    // Load the shared header and footer HTML into their placeholders
     loadComponent("#header-placeholder", "components/header.html", initNavigation);
     loadComponent("#footer-placeholder", "components/footer.html");
 
-    // 2. Initialize Theme
+    // Apply theme (light / dark) based on what is saved in localStorage
     applySavedTheme();
 
-    // 3. Initialize Home Page Activity Feed (Only runs on index.html)
+    // If we are on the Home page, render the activity feed and wire up the "Clear Log" button
     if ($("#activity-list").length > 0) {
         renderActivityFeed();
         
@@ -52,7 +52,7 @@ function initNavigation() {
         updateThemeIcon(isDark);
     });
 
-    // Set initial icon state
+    // Set initial icon and accessibility state
     const savedTheme = localStorage.getItem("meridian-theme");
     updateThemeIcon(savedTheme === "dark");
 }
@@ -71,11 +71,14 @@ function applySavedTheme() {
  * Toggles the navigation icon between Sun and Moon
  */
 function updateThemeIcon(isDark) {
-    const icon = $("#theme-toggle i");
+    const $toggle = $("#theme-toggle");
+    const icon = $toggle.find("i");
     if (isDark) {
         icon.removeClass("bi-moon-stars").addClass("bi-sun-fill");
+        $toggle.attr("aria-pressed", "true");
     } else {
         icon.removeClass("bi-sun-fill").addClass("bi-moon-stars");
+        $toggle.attr("aria-pressed", "false");
     }
 }
 
@@ -104,7 +107,6 @@ function renderActivityFeed() {
         if (log.action.includes("Added")) { icon = "bi-plus-lg"; color = "text-primary"; }
         else if (log.action.includes("Completed")) { icon = "bi-check2-all"; color = "text-success"; }
         else if (log.action.includes("Deleted")) { icon = "bi-trash"; color = "text-danger"; }
-        else if (log.action.includes("Reopened")) { icon = "bi-arrow-counterclockwise"; color = "text-warning"; }
 
         const logItem = `
             <li class="activity-item d-flex align-items-start mb-3">

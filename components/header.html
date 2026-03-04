@@ -1,14 +1,16 @@
-<nav class="navbar navbar-expand-lg sticky-header navbar-light bg-light py-3">
+<!-- Shared header: navigation bar that is loaded into every page using jQuery .load() from js/main.js -->
+<nav class="navbar navbar-expand-lg sticky-header navbar-light bg-light py-3" role="navigation" aria-label="Primary">
     <div class="container">
-        <a class="navbar-brand fw-bold d-flex align-items-center" href="index.html">
-            <span class="text-primary">MERI</span>DIAN
+        <a class="navbar-brand" href="index.html">
+            <span class="brand-accent">MERI</span>DIAN
         </a>
 
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#meridianNav">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#meridianNav" aria-controls="meridianNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class="collapse navbar-collapse" id="meridianNav">
+            <!-- Main navigation links for all the pages in the app -->
             <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
                 <li class="nav-item"><a class="nav-link" href="/index.html">Home</a></li>
                 <li class="nav-item"><a class="nav-link" href="/tasks.html">Tasks</a></li>
@@ -18,9 +20,10 @@
             </ul>
 
             <div class="d-flex align-items-center gap-3">
-                <button id="theme-toggle" class="btn btn-outline-secondary btn-sm" title="Toggle Dark Mode">
+                <!-- Dark mode toggle button, wired up in js/main.js (initNavigation) -->
+                <button id="theme-toggle" class="btn btn-outline-secondary btn-sm" type="button" title="Toggle Dark Mode" aria-label="Toggle dark mode" aria-pressed="false">
                     <i class="bi bi-moon-stars"></i> </button>
-                <a href="#" class="btn btn-primary px-4 rounded-pill shadow-sm">Login</a>
+                
             </div>
         </div>
     </div>

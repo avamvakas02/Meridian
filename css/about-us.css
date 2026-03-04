@@ -1,0 +1,65 @@
+/* --- About Page Specific Styling --- */
+
+.about-hero {
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    transition: background-color var(--transition-speed) ease;
+}
+
+/* Developer Profile Card */
+.profile-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.profile-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1) !important;
+}
+
+.profile-header {
+    background: linear-gradient(135deg, var(--meridian-primary) 0%, #0056b3 100%);
+}
+
+/* Dark mode variant for the profile header to better match global theme */
+body.dark-mode .profile-header {
+    background: linear-gradient(135deg, #0b2a4d 0%, #00152e 100%);
+}
+
+/* Tech Stack Cards */
+.tech-card {
+    background-color: #ffffff;
+    transition: all 0.3s ease;
+}
+.tech-card:hover {
+    border-color: var(--meridian-primary) !important;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+/* Subtle background colors for icons */
+.bg-primary-subtle { background-color: rgba(13, 110, 253, 0.1) !important; }
+.bg-warning-subtle { background-color: rgba(255, 193, 7, 0.1) !important; }
+.bg-info-subtle { background-color: rgba(13, 202, 240, 0.1) !important; }
+.bg-success-subtle { background-color: rgba(25, 135, 84, 0.1) !important; }
+
+/* --- Dark Mode Overrides --- */
+
+body.dark-mode .about-hero {
+    background-color: #1a1a1a !important;
+    border-bottom: 1px solid #333;
+}
+
+body.dark-mode .profile-card,
+body.dark-mode .tech-card {
+    background-color: #1f1f1f !important;
+    border-color: #333 !important;
+}
+
+body.dark-mode .profile-card .card-body {
+    background-color: #1f1f1f;
+}
+
+body.dark-mode .tech-card:hover {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+}
+
+body.dark-mode .text-muted {
+    color: #adb5bd !important;
+}

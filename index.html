@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<!-- Page head: basic meta tags, Bootstrap, icons and my own CSS + JavaScript files for the home page -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,10 +22,12 @@
 </head>
 <body class="d-flex flex-column min-vh-100">
 
+    <!-- Header placeholder: js/main.js loads the 
+    shared navigation bar using jQuery .load() -->
     <div id="header-placeholder"></div>
 
     <main id="home-content" class="flex-grow-1">
-        
+        <!-- Hero section: main landing banner with title, short description and a button that sends the user to the tasks page -->
         <section class="hero-section py-5">
             <div class="container text-center">
                 <h1 class="display-4 fw-bold">Master Your Workflow with <span class="brand-accent">MERI</span>DIAN</h1>
@@ -32,7 +35,7 @@
                 <a href="tasks.html" class="btn btn-primary btn-lg px-5 rounded-pill shadow-sm">Get Started</a>
             </div>
         </section>
-
+        <!-- Features section: three cards that quickly explain the main benefits of using Meridian (security, analytics, planning) -->
         <section class="features-section py-5 bg-light">
             <div class="container">
                 <div class="text-center mb-5">
@@ -65,18 +68,20 @@
             </div>
         </section>
 
-
+        <!-- Activity + quote section: left side shows recent actions from localStorage, right side shows a daily quote loaded with JavaScript using an API -->
         <section class="activity-section py-5 bg-light">
             <div class="container">
                 <div class="row g-5">
                     <div class="col-lg-7">
+                        <!-- Activity header row: title and a button to clear the saved activity log -->
                         <div class="d-flex justify-content-between align-items-center mb-4">
                             <h2 class="h4 mb-0">Latest Activity</h2>
+                            <!-- Button that clears the activity log saved in localStorage -->
                             <button id="clear-activity" class="btn btn-sm btn-outline-secondary rounded-pill px-3">
                                 <i class="bi bi-eraser me-1"></i> Clear Log
                             </button>
                         </div>
-                        
+                        <!-- Timeline container: js/main.js fills this list with log items (added / completed / deleted tasks) -->
                         <div class="activity-timeline shadow-sm bg-white p-4 rounded-4">
                             <ul id="activity-list" class="list-unstyled mb-0">
                                 <li class="text-muted py-2">
@@ -86,7 +91,7 @@
                             </ul>
                         </div>
                     </div>
-
+                    <!-- Quote box: placeholder where js/api.js injects a motivational quote from an external API or shows a fallback quote -->
                     <div class="col-lg-5">
                         <div id="api-quote-container" class="h-100 p-4 rounded-4 shadow-sm border-start border-primary border-4">
                             <h4 class="mb-3 text-uppercase small fw-bold text-primary">Professional Insight</h4>
@@ -100,6 +105,7 @@
             </div>
         </section>
 
+        <!-- Testimonials section: three static cards with avatar images and short quotes from example professional roles -->
         <section class="testimonials-section py-5">
             <div class="container">
                 <div class="text-center mb-5">
@@ -145,7 +151,7 @@
         </section>
 
     </main>
-
+    <!-- Footer placeholder: js/main.js loads the shared footer HTML here using jQuery .load() -->
     <div id="footer-placeholder"></div>
 
 </body>

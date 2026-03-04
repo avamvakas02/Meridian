@@ -22,6 +22,7 @@
 
     <div id="header-placeholder"></div>
 
+    <!-- Contact page layout: left side has basic contact info and a map, right side has the contact form -->
     <main class="container py-5 flex-grow-1">
         <div class="row g-5 align-items-center">
             
@@ -31,6 +32,7 @@
                     Have questions about our architecture or want to suggest a feature? Reach out and we'll get back to you as soon as possible.
                 </p>
 
+                <!-- Email section with icon and support address -->
                 <div class="d-flex align-items-center mb-4">
                     <div class="icon-box bg-primary-subtle text-primary rounded-circle p-3 me-3">
                         <i class="bi bi-envelope-at fs-4"></i>
@@ -41,6 +43,7 @@
                     </div>
                 </div>
 
+                <!-- Location section with icon and the college name -->
                 <div class="d-flex align-items-center mb-3">
                     <div class="icon-box bg-success-subtle text-success rounded-circle p-3 me-3">
                         <i class="bi bi-geo-alt fs-4"></i>
@@ -51,6 +54,7 @@
                     </div>
                 </div>
 
+                <!-- Embedded Google Maps iframe pointing to The American College of Greece -->
                 <div class="rounded-4 overflow-hidden shadow-sm border mt-3">
                     <div class="ratio ratio-4x3">
                         <iframe
@@ -67,6 +71,7 @@
 
             <div class="col-lg-7">
                 <div class="card border-0 shadow-lg rounded-4 p-4 p-md-5">
+                <!-- Contact form: basic fields that are validated by js/contact-us.js using Bootstrap validation -->
                 <form id="contact-form" class="needs-validation" novalidate>
     <div class="row g-3">
         
@@ -105,8 +110,8 @@
             </button>
         </div>
     </div>
-</form>
-                    
+                </form>
+                    <!-- Success message: only shown after a valid submit, the form fades out and this appears -->
                     <div id="contact-success" class="alert alert-success d-none mt-4 rounded-4 border-0 shadow-sm" role="status" aria-live="polite">
                         <div class="d-flex align-items-center">
                             <i class="bi bi-check-circle-fill fs-4 me-3"></i>
